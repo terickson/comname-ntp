@@ -1,0 +1,16 @@
+driftfile <%= @drift_file_path %>
+
+restrict default kod nomodify notrap nopeer noquery
+restrict -6 default kod nomodify notrap nopeer noquery
+
+
+restrict 127.0.0.1 
+restrict -6 ::1
+
+<% @ntp_servers.each do |servername| %>
+server <%= @servername %> iburst
+<% end %>
+
+includefile /etc/ntp/crypto/pw
+
+keys /etc/ntp/keys
