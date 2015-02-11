@@ -13,12 +13,12 @@ class ntpx (
 	file { $ntp_config_file_path:
 		ensure 	=> 'file',
 		content => template('ntpx/config_file.erb'),
-		mode	=> '0644',
+		mode	  => '0644',
 	}
 
 	file { $drift_file_path:
 		ensure 	=> 'file',
-		mode	=> '0755',
+		mode	  => '0755',
 	}
 
 	service { $ntp_service_name:
